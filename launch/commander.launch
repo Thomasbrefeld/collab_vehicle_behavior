@@ -1,0 +1,8 @@
+<launch>
+    <include file="$(find prizm_ros)/launch/twist_controller.launch"/>
+    <include file="$(find hls_lfcd_lds_driver)/launch/hlds_laser.launch"/>
+    <include file="$(find simple_camera_publisher)/launch/camera_publisher.launch">
+        <arg name="source" value="/dev/v4l/by-id/usb-KYE_Systems_Corp._USB_Camera_200901010001-video-index0" />
+    </include>
+    <node name = "collab_commander" pkg = "collab_vehicle_behavior" type = "collab_commander" output = "screen" launch-prefix = "gnome-terminal -x"/>
+</launch>
